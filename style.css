@@ -7,3 +7,12 @@ h1{
 .play{
     text-align: top;
 }
+#footer{
+    position: fixed;
+  bottom: 0;
+  z-index: 9;
+  padding: 10px 10px 40px 10px;
+  text-align: center;
+  color: orange;
+  width: 100%;
+}
