@@ -16,3 +16,8 @@ h1{
   color: orange;
   width: 100%;
 }
+canvas{
+    border: 5px solid white;
+     margin-top: 50px;
+}
+
