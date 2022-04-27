@@ -18,6 +18,8 @@ var rightWristX= 0;
 var rightWristY = 0;
 var rightWristScore = "";
 
+game_status = "";
+
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -55,10 +57,15 @@ function setup(){
 
 
 function draw(){
-  if(rightWristScore > 0.2){
+  if(game_status == "start"){
     fill('#287233');
     stroke('#BEBD7F');
     circle(rightWristX, rightWristY, 0.2);
+  }
+
+  function startGame(){
+  game_status = "start";
+  document.getElementById("status").innerHTML= "Game is Loaded!";
   }
 
  background(0); 
