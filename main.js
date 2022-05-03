@@ -22,6 +22,9 @@ game_status = "";
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
+function preload(){
+  ball_touch_paddle = loadSound("ball_touch_paddel.wav");
+  missed = loadSound("missed.wav");
 
 //ball x and y and speedx speed y and radius
 var ball = {
@@ -155,10 +158,12 @@ function move(){
        ball.dx=-ball.dx-0.5;       
    }
   if (ball.x-2.5*ball.r/2< 0){
-  if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
+  if (ball.y >= rightWristY&& ball.y <= rightWristY + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
+    play(ball_touch_paddle);
   }
   else{
+    play(missed);
     pcscore++;
     reset();
     navigator.vibrate(100);
@@ -172,7 +177,7 @@ if(pcscore ==4){
     stroke("white");
     textSize(25)
     text("Game Over!☹☹",width/2,height/2);
-    text("Reload The Page!",width/2,height/2+30)
+    text("Press Restart to Play Again!",width/2,height/2+30)
     noLoop();
     pcscore = 0;
 }
@@ -180,6 +185,11 @@ if(pcscore ==4){
        ball.dy =- ball.dy;
    }   
 }
+
+function restart(){
+  pcscore = 0;
+  playerscore = 0;
+  loop();
 
 
 //width height of canvas speed of ball 
